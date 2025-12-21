@@ -3,8 +3,8 @@
     "**/*",
     "**/.server/**/*",
     "**/.client/**/*",
-    ".react-router/types/**/*"
-  ],
+    ".react-router/types/**/*",
+    ".prettierrc.cjs"  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["node", "vite/client"],
@@ -15,7 +15,8 @@
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "@assets/*": ["./public/*"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
