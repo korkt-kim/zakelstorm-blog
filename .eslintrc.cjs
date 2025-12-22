@@ -90,12 +90,8 @@ module.exports = {
     'eol-last': ['error', 'always'],
     semi: ['off'],
     quotes: ['error', 'single'],
-    indent: ['error', 2],
     'import/newline-after-import': 'error',
-    'padding-line-between-statements': [
-      'warn',
-      { blankLine: 'always', prev: '*', next: 'return' },
-    ],
+    'padding-line-between-statements': ['warn', { blankLine: 'always', prev: '*', next: 'return' }],
     'prefer-const': 'off',
   },
 };
