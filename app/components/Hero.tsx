@@ -115,7 +115,7 @@ export function Hero() {
                 </h1>
                 <h1 className='font-ubuntu text-4xl md:text-[64px] md:leading-[72px] capitalize'>
                   <span className='text-white'>I&apos;m </span>
-                  <span className='text-brand-primary'>Sinan</span>
+                  <span className='text-brand-primary'>PolZ</span>
                   <span className='text-white'>,</span>
                 </h1>
                 <h1 className='font-ubuntu text-4xl md:text-[64px] md:leading-[72px] capitalize text-white'>
