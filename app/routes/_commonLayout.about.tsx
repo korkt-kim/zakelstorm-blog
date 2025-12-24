@@ -22,8 +22,8 @@ export default function Page() {
         {/* Content */}
         <Flex vertical gap={64} className='max-w-[640px]'>
           {/* Title */}
-          <div className='bg-bg-dark border-4 border-brand-primary rounded-tl-[40px] rounded-br-[40px] px-10 py-4 inline-block'>
-            <h2 className='font-ubuntu text-4xl md:text-[64px] md:leading-[72px] capitalize text-white'>
+          <div className='bg-bg-dark border-4 border-brand-primary rounded-tl-[40px] rounded-br-[40px] px-10 py-1 inline-block'>
+            <h2 className='font-ubuntu text-4xl md:text-[64px] md:leading-[75px] h-[75px]  capitalize text-white p-0! m-0!'>
               About me
             </h2>
           </div>
