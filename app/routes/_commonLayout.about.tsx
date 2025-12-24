@@ -72,7 +72,7 @@ export default function Page() {
         {/* Image */}
         <div className='w-full md:w-[462px] h-[400px] md:h-[556px] rounded-2xl overflow-hidden bg-grey'>
           <img
-            src='/images/workspace.jpg'
+            src='/images/about-me.jpg'
             alt='Workspace'
             className='w-full h-full object-cover'
             onError={e => {

@@ -26,15 +26,7 @@ export function RecentArticles({
         </Flex>
 
         {/* Blog Post */}
-        <Articles
-          articles={articles
-            .sort(
-              (a, b) =>
-                new Date(b.createdAt).getTime() -
-                new Date(a.createdAt).getTime()
-            )
-            .slice(0, length)}
-        />
+        <Articles articles={articles.slice(0, length)} />
 
         {/* Buttons */}
         <Flex wrap gap={32} justify='center'>

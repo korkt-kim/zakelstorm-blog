@@ -1,17 +1,26 @@
-import { Blogs } from '../components/Blogs'
+import { RecentArticles } from '~/components/RecentArticles'
+import { getAllArticles } from '~/queries/article'
 import { Hero } from '../components/Hero'
-import { Works } from '../components/Works'
+import type { Route } from './+types/_commonLayout._index'
 
 export function meta() {
   return [{ title: 'PolZ - Frontend Developer' }]
 }
 
-export default function Page() {
+export async function loader() {
+  const articles = (await getAllArticles()).sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  )
+
+  return { articles }
+}
+
+export default function Page({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <Hero />
-      <Works />
-      <Blogs />
+
+      <RecentArticles articles={loaderData.articles} />
     </>
   )
 }
