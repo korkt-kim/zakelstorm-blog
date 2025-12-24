@@ -91,7 +91,10 @@ module.exports = {
     semi: ['off'],
     quotes: ['error', 'single'],
     'import/newline-after-import': 'error',
-    'padding-line-between-statements': ['warn', { blankLine: 'always', prev: '*', next: 'return' }],
+    'padding-line-between-statements': [
+      'warn',
+      { blankLine: 'always', prev: '*', next: 'return' },
+    ],
     'prefer-const': 'off',
   },
-};
+}

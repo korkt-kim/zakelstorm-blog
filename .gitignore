@@ -5,5 +5,7 @@
 # React Router
 /.react-router/
 /build/
-/.vscode
+.vscode
 .env*
+
+.generated
