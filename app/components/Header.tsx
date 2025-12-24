@@ -20,6 +20,15 @@ const MENUS = [
 export function Header() {
   const { pathname } = useLocation()
 
+  const isMatchedMenu = (menu: (typeof MENUS)[number]) => {
+    switch (menu.href) {
+      case '/':
+        return pathname === menu.href
+      default:
+        return pathname.startsWith(menu.href)
+    }
+  }
+
   return (
     <header className='bg-bg-dark px-8 py-0 w-full border-b border-grey/20'>
       <Flex
@@ -46,7 +55,7 @@ export function Header() {
                 to={menu.href}
                 className={cn([
                   'text-white hover:text-brand-secondary transition-colors',
-                  pathname === menu.href && 'text-brand-primary',
+                  isMatchedMenu(menu) && 'text-brand-primary',
                 ])}>
                 {menu.name}
               </Link>
