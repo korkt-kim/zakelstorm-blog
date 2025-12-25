@@ -7,6 +7,7 @@ import {
 } from '~/utils/fs'
 
 import rehypeShiki from '@shikijs/rehype'
+import { execSync } from 'child_process'
 import type { Stats } from 'fs'
 import fs from 'fs/promises'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -22,18 +23,28 @@ import type { VFile } from 'vfile'
 import { DIRECTORIES } from '~/contents/consts'
 import { remarkReadingTime } from '~/libs/remark-reading-time'
 
+const REPO_ROOT = execSync('git rev-parse --show-toplevel').toString().trim()
 const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
 const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
 
 const generateArticles = async () => {
   const res = await Promise.all(await getAllArticleContents(CONTENTS_DIR))
-
+  console.log('qwer')
+  console.log(
+    CONTENTS_DIR,
+    process.cwd(),
+    path.resolve(),
+    path.relative(process.cwd(), CONTENTS_DIR)
+  )
   res
-    .map<Article>(item => ({
-      ...item[1].data.frontmatter,
-      fileName: removeExtension(item[0]),
-
-      content: item[1].value.toString(),
+    .map<Article>(([fileName, file]) => ({
+      ...file.data.frontmatter,
+      fileName: removeExtension(fileName),
+      githubPath: path.relative(
+        REPO_ROOT,
+        path.join(CONTENTS_DIR, file.data.frontmatter.category, fileName)
+      ),
+      content: file.value.toString(),
     }))
     .forEach(item => {
       const fileName = item.fileName

@@ -10,4 +10,5 @@ export interface Frontmatter {
 export interface Article extends Frontmatter {
   content: string
   fileName: string
+  githubPath: string
 }
