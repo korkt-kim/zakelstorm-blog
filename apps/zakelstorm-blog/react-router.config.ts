@@ -1,4 +1,5 @@
 import type { Config } from '@react-router/dev/config'
+import { vercelPreset } from '@vercel/react-router/vite'
 import path from 'path'
 import { DIRECTORIES } from './contents/consts'
 import { getSlugsFromMarkdown, removeExtension } from './utils/fs'
@@ -20,4 +21,5 @@ export default {
       ...slugs.map(slug => `/articles/${slug[0]}/${removeExtension(slug[1])}`),
     ]
   },
+  presets: [vercelPreset()],
 } satisfies Config
