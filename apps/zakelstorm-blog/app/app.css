@@ -1,0 +1,290 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ========================================
+     Fonts
+     ======================================== */
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-ubuntu: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+
+  /* ========================================
+     Colors
+     ======================================== */
+  --color-white: #ffffff;
+  --color-brand-primary: #12f7d6;
+  --color-brand-secondary: #98faec;
+  --color-bg-dark: #292f36;
+  --color-bg-darker: #1a1e23;
+  --color-grey: #43454d;
+  --color-html: #e54f26;
+  --color-css: #0c73b8;
+  --color-js: #e7a020;
+  --color-react: #28a9e0;
+  --color-wf-base-800: #2d3648;
+  --color-wf-base-500: #a0abc0;
+  --color-wf-base-900: #1a202c;
+  --color-wf-base-white: #ffffff;
+
+  /* ========================================
+     Typography - Ubuntu Font Styles
+     ======================================== */
+  /* BG text-U */
+  --font-bg-text-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-bg-text-size: 117px;
+  --font-bg-text-weight: 400;
+  --font-bg-text-line-height: 134px;
+  --font-bg-text-letter-spacing: 0;
+
+  /* H1-U */
+  --font-h1-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-h1-size: 64px;
+  --font-h1-weight: 400;
+  --font-h1-line-height: 72px;
+  --font-h1-letter-spacing: 0;
+
+  /* H2-U */
+  --font-h2-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-h2-size: 32px;
+  --font-h2-weight: 400;
+  --font-h2-line-height: 36px;
+  --font-h2-letter-spacing: 0;
+
+  /* Para-U */
+  --font-para-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-para-size: 16px;
+  --font-para-weight: 300;
+  --font-para-line-height: 18px;
+  --font-para-letter-spacing: 0;
+
+  /* Button-U */
+  --font-button-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-button-size: 20px;
+  --font-button-weight: 400;
+  --font-button-line-height: 24px;
+  --font-button-letter-spacing: 0;
+
+  /* Article-U */
+  --font-article-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-article-size: 16px;
+  --font-article-weight: 300;
+  --font-article-line-height: 32px;
+  --font-article-letter-spacing: 0;
+
+  /* Label-U-M */
+  --font-label-medium-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-label-medium-size: 14px;
+  --font-label-medium-weight: 500;
+  --font-label-medium-line-height: 16px;
+  --font-label-medium-letter-spacing: 0;
+
+  /* Label-U-L */
+  --font-label-light-family: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
+  --font-label-light-size: 14px;
+  --font-label-light-weight: 300;
+  --font-label-light-line-height: 16px;
+  --font-label-light-letter-spacing: 0;
+
+  /* ========================================
+     Typography - IBM Plex Mono Font Styles
+     ======================================== */
+  /* H2-M */
+  --font-h2-mono-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-h2-mono-size: 32px;
+  --font-h2-mono-weight: 500;
+  --font-h2-mono-line-height: 42px;
+  --font-h2-mono-letter-spacing: 0;
+
+  /* Number-M */
+  --font-number-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-number-size: 48px;
+  --font-number-weight: 500;
+  --font-number-line-height: 62px;
+  --font-number-letter-spacing: 0;
+
+  /* Logo-M */
+  --font-logo-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-logo-size: 32px;
+  --font-logo-weight: 500;
+  --font-logo-line-height: 42px;
+  --font-logo-letter-spacing: 0;
+
+  /* Menu-M */
+  --font-menu-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-menu-size: 24px;
+  --font-menu-weight: 400;
+  --font-menu-line-height: 32px;
+  --font-menu-letter-spacing: 0;
+
+  /* Media-M */
+  --font-media-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-media-size: 16px;
+  --font-media-weight: 400;
+  --font-media-line-height: 20px;
+  --font-media-letter-spacing: 0;
+
+  /* Para-M */
+  --font-para-mono-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-para-mono-size: 16px;
+  --font-para-mono-weight: 400;
+  --font-para-mono-line-height: 20px;
+  --font-para-mono-letter-spacing: 0;
+
+  /* Code-M */
+  --font-code-family: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-code-size: 14px;
+  --font-code-weight: 400;
+  --font-code-line-height: 18px;
+  --font-code-letter-spacing: 0;
+
+  /* ========================================
+     Effects
+     ======================================== */
+  --shadow-image:
+    0 2.77px 2.21px rgba(38, 31, 34, 0.02),
+    0 6.65px 5.32px rgba(38, 31, 34, 0.03),
+    0 12.52px 10.02px rgba(38, 31, 34, 0.04),
+    0 22.34px 17.87px rgba(38, 31, 34, 0.04),
+    0 41.78px 33.42px rgba(38, 31, 34, 0.05),
+    0 100px 80px rgba(38, 31, 34, 0.07);
+
+  /* ========================================
+     Spacing
+     ======================================== */
+  --spacing-header-height: 80px;
+  --spacing-footer-height-mobile: 132px;
+  --spacing-footer-height-desktop: 90px;
+  --spacing-main-padding-inline: 32px;
+  --spacing-main-max-width: 720px;
+}
+@layer utilities {
+  html,
+  body {
+    @apply bg-bg-dark text-white;
+    font-family: var(--font-ubuntu);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  /* ========================================
+   Typography Styles
+   ======================================== */
+  h1 {
+    font-family: var(--font-h1-family);
+    font-size: 2.15rem;
+    font-weight: var(--font-h1-weight);
+    line-height: 1.2;
+    letter-spacing: var(--font-h1-letter-spacing);
+    margin-block: 1.5rem 1rem;
+    padding-top: 1rem;
+  }
+
+  h2 {
+    font-family: var(--font-h2-family);
+    font-size: 1.8rem;
+    font-weight: var(--font-h2-weight);
+    line-height: 1.3;
+    letter-spacing: var(--font-h2-letter-spacing);
+    margin-block: 1.25rem 0.875rem;
+    padding-top: 0.875rem;
+  }
+
+  h3 {
+    font-family: var(--font-h2-family);
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-block: 1rem 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  h4 {
+    font-family: var(--font-h2-family);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-block: 0.875rem 0.625rem;
+    padding-top: 0.625rem;
+  }
+
+  h5 {
+    font-family: var(--font-h2-family);
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-block: 0.75rem 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  h6 {
+    font-family: var(--font-h2-family);
+    font-size: 1rem; /* 16px */
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    margin-block: 0.625rem 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  p {
+    font-family: var(--font-para-family);
+    font-size: var(--font-para-size);
+    font-weight: var(--font-para-weight);
+    line-height: var(--font-para-line-height);
+    letter-spacing: var(--font-para-letter-spacing);
+  }
+
+  ul {
+    font-family: var(--font-article-family);
+    font-size: var(--font-article-size);
+    font-weight: var(--font-article-weight);
+    line-height: var(--font-article-line-height);
+    letter-spacing: var(--font-article-letter-spacing);
+    margin-block: 1rem;
+    padding-left: 2rem;
+    list-style-type: disc;
+    list-style-position: outside;
+  }
+
+  ol {
+    font-family: var(--font-article-family);
+    font-size: var(--font-article-size);
+    font-weight: var(--font-article-weight);
+    line-height: var(--font-article-line-height);
+    letter-spacing: var(--font-article-letter-spacing);
+    margin-block: 1rem;
+    padding-left: 2rem;
+    list-style-type: decimal;
+    list-style-position: outside;
+  }
+
+  li {
+    margin-block: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  ul li::marker,
+  ol li::marker {
+    color: var(--color-brand-primary);
+    font-weight: 500;
+  }
+
+  button {
+    font-family: var(--font-button-family);
+    font-size: var(--font-button-size);
+    font-weight: var(--font-button-weight);
+    line-height: var(--font-button-line-height);
+    letter-spacing: var(--font-button-letter-spacing);
+  }
+
+  pre {
+    padding: 24px;
+    border-radius: 12px;
+    margin-inline: -19px;
+    overflow: auto;
+    line-height: 24px;
+  }
+}

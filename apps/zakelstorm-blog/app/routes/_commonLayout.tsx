@@ -1,0 +1,15 @@
+import { Outlet } from 'react-router'
+import { Footer } from '~/app/components/Footer'
+import { Header } from '~/app/components/Header'
+
+export default function CommonLayout() {
+  return (
+    <div className='min-h-screen bg-bg-dark'>
+      <Header />
+      <main className=' px-main-padding-inline min-h-[calc(100vh-var(--spacing-header-height)-var(--spacing-footer-height-mobile))] md:min-h-[calc(100vh-var(--spacing-header-height)-var(--spacing-footer-height-desktop))]'>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  )
+}
