@@ -63,8 +63,6 @@ export function Header() {
           </Flex>
 
           <Flex align='center' gap={64}>
-            <button className='w-5 h-5 text-white hover:text-brand-primary transition-colors'></button>
-
             <Flex gap={32}>
               <Link
                 to={LINKED_IN_URL}
