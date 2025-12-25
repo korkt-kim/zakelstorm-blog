@@ -1,8 +1,8 @@
-import { DIRECTORIES } from '~/contents/consts'
-import type { Article } from '~/contents/types'
 import fg from 'fast-glob'
 import fsExtra from 'fs-extra/esm'
 import path from 'path'
+import { DIRECTORIES } from '~/contents/consts'
+import type { Article } from '~/contents/types'
 
 const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
 

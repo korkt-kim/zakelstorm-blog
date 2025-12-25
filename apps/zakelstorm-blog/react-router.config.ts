@@ -1,6 +1,9 @@
 import type { Config } from '@react-router/dev/config'
 import path from 'path'
+import { DIRECTORIES } from './contents/consts'
 import { getSlugsFromMarkdown, removeExtension } from './utils/fs'
+
+const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
 
 export default {
   // Config options...
@@ -9,9 +12,7 @@ export default {
   prerender: async ({ getStaticPaths }) => {
     const paths = await getStaticPaths()
 
-    const slugs = await getSlugsFromMarkdown(
-      path.join(process.cwd(), 'contents/')
-    )
+    const slugs = await getSlugsFromMarkdown(CONTENTS_DIR)
 
     return [
       '/',
