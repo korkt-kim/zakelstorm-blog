@@ -4,6 +4,7 @@ export interface Frontmatter {
   category: string
   thumbnail?: string
   createdAt: string
+  readingTime: number
 }
 
 export interface Article extends Frontmatter {

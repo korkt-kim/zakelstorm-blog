@@ -1,9 +1,12 @@
-import type { Article, Frontmatter } from '~/contents/types'
 import path from 'path'
-import { gerateJsonFile, getSlugsFromMarkdown, removeExtension } from '~/utils/fs'
+import type { Article, Frontmatter } from '~/contents/types'
+import {
+  gerateJsonFile,
+  getSlugsFromMarkdown,
+  removeExtension,
+} from '~/utils/fs'
 
 import rehypeShiki from '@shikijs/rehype'
-import { DIRECTORIES } from '~/contents/consts'
 import type { Stats } from 'fs'
 import fs from 'fs/promises'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -16,6 +19,8 @@ import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import type { Node } from 'unist'
 import type { VFile } from 'vfile'
+import { DIRECTORIES } from '~/contents/consts'
+import { remarkReadingTime } from '~/libs/remark-reading-time'
 
 const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
 const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
@@ -47,11 +52,14 @@ const getAllArticleContents = async (dir: string) => {
     const [category, fileName] = slug
 
     const filePath = path.join(CONTENTS_DIR, category, fileName)
-
     const stats = await fs.stat(filePath)
 
     const result = await unified()
       .use(remarkParse)
+      .use(remarkReadingTime, {
+        name: 'frontmatter',
+        attribute: 'frontmatter.readingTime',
+      })
       .use(changeImagePaths)
       .use(remarkGfm)
       .use(remarkFrontmatter, ['yaml', 'toml'])
@@ -104,8 +112,8 @@ const changeImagePaths = () => (tree: Node) => {
       return
     }
     imageNode.url = imageNode.url
-      .replaceAll(path.join(CONTENTS_DIR, 'images'), '/images')
-      .replaceAll('../images', '/images')
+      .replaceAll(path.join(CONTENTS_DIR, 'images'), '../../images')
+      .replaceAll('../images', '../../images')
   })
 
   return tree
@@ -134,24 +142,25 @@ const appendFrontmatter =
     }
     const imageNodes = getImageNodes(tree)
 
-    file.data.frontmatter = {}
+    Object.assign<{ readingTime: number }, Omit<Frontmatter, 'readingTime'>>(
+      file.data.frontmatter as { readingTime: number },
+      {
+        title: '',
+        description: '',
+        category,
+        thumbnail:
+          imageNodes[0] && isImageNode(imageNodes[0]) ? imageNodes[0].url : '',
+        createdAt: stats.birthtime.toISOString(),
+        ...frontmatterNode.value
+          .split('\n')
+          .reduce<Record<string, string>>((acc, item) => {
+            const [key, value] = item.split(':')
+            acc[key.trim()] = value.trim()
 
-    Object.assign<object, Frontmatter>(file.data.frontmatter as object, {
-      title: '',
-      description: '',
-      category,
-      thumbnail:
-        imageNodes[0] && isImageNode(imageNodes[0]) ? imageNodes[0].url : '',
-      createdAt: stats.birthtime.toISOString(),
-      ...frontmatterNode.value
-        .split('\n')
-        .reduce<Record<string, string>>((acc, item) => {
-          const [key, value] = item.split(':')
-          acc[key.trim()] = value.trim()
-
-          return acc
-        }, {}),
-    })
+            return acc
+          }, {}),
+      }
+    )
   }
 
 generateArticles()

@@ -5,9 +5,6 @@ description: 클래스를 변경하는 이유는 하나여야 한다는 단일 �
 
 # Single Responsibility Principle (단일 책임 원칙)
 
-
-![avatar2](../images/Avatar2.jpeg)
-
 ## 개요
 
 ### 단일 책임 원칙이란?

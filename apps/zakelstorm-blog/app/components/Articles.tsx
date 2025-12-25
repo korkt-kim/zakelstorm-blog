@@ -1,5 +1,5 @@
-import type { Article } from '~/contents/types'
 import { Link } from 'react-router'
+import type { Article } from '~/contents/types'
 import { Flex } from './shared/Flex'
 
 export function Articles({ articles }: { articles: Article[] }) {
@@ -13,16 +13,18 @@ export function Articles({ articles }: { articles: Article[] }) {
             className='w-full border-t border-b border-grey/30 py-8'>
             <Flex vertical align='start' gap={32} className='md:flex-row px-4'>
               {/* Blog Image */}
-              <div className='w-full md:w-[120px] h-[120px] rounded-lg overflow-hidden bg-grey shrink-0'>
-                <img
-                  src={article.thumbnail}
-                  alt='Blog post'
-                  className='w-full h-full object-cover'
-                  onError={e => {
-                    e.currentTarget.style.display = 'none'
-                  }}
-                />
-              </div>
+              {article.thumbnail && (
+                <div className='hidden md:block md:w-[120px] h-[120px] rounded-lg overflow-hidden bg-grey shrink-0'>
+                  <img
+                    src={article.thumbnail}
+                    alt='Blog post'
+                    className='w-full h-full object-cover'
+                    onError={e => {
+                      e.currentTarget.style.display = 'none'
+                    }}
+                  />
+                </div>
+              )}
 
               {/* Blog Content */}
               <Flex vertical gap={24} className='flex-1'>
@@ -71,7 +73,7 @@ export function Articles({ articles }: { articles: Article[] }) {
                   </Flex>
                   <Flex gap={8}>
                     <span className='font-medium'>Read</span>
-                    <span>1 Min</span>
+                    <span>{article.readingTime} Min</span>
                   </Flex>
                 </Flex>
               </Flex>
