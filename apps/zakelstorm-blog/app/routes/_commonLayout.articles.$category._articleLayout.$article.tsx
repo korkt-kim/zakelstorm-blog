@@ -1,5 +1,9 @@
 // import { getArticleContent } from '~/app/queries/article'
 import CalendarLogo from '@assets/images/calendar.svg?react'
+import PencilLogo from '@assets/images/pencil.svg?react'
+import { Link } from 'react-router'
+import { CONTENT_EDIT_URL } from '~/contents/consts'
+import { Flex } from '../components/shared/Flex'
 import { getArticleContent } from '../queries/article'
 import type { Route } from './+types/_commonLayout.articles.$category._articleLayout.$article'
 
@@ -32,9 +36,18 @@ export default function Page({ loaderData }: Route.ComponentProps) {
         </div>
 
         {/* Title */}
-        <h1 className='mb-6 text-4xl font-bold leading-tight text-gray-300 sm:text-5xl'>
-          {article.title}
-        </h1>
+        <Flex justify='space-between'>
+          <h1 className='mb-6 text-4xl font-bold leading-tight text-gray-300 sm:text-5xl'>
+            {article.title}
+          </h1>
+          <Link
+            to={`${CONTENT_EDIT_URL}/${article.githubPath}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='flex items-center gap-1.5 text-blue-600 hover:underline'>
+            <PencilLogo fill='grey' />
+          </Link>
+        </Flex>
 
         {/* Meta Information */}
         <div className='flex flex-wrap items-center gap-4 text-sm text-gray-400'>
