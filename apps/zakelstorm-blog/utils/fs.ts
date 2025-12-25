@@ -22,10 +22,9 @@ export const gerateJsonFile = async (
   content: object
 ) => {
   try {
-    await fs.access(dir)
-  } catch {
     await fs.mkdir(dir)
-  }
+  } catch {}
+  await fs.access(dir)
 
   fs.writeFile(
     path.join(dir, `${fileName}.json`),
