@@ -25,17 +25,11 @@ import { remarkReadingTime } from '~/libs/remark-reading-time'
 
 const REPO_ROOT = execSync('git rev-parse --show-toplevel').toString().trim()
 const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
-const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
+const GENERATED_DIR = path.join(REPO_ROOT, DIRECTORIES.GENERATED)
 
 const generateArticles = async () => {
   const res = await Promise.all(await getAllArticleContents(CONTENTS_DIR))
-  console.log('qwer')
-  console.log(
-    CONTENTS_DIR,
-    process.cwd(),
-    path.resolve(),
-    path.relative(process.cwd(), CONTENTS_DIR)
-  )
+
   res
     .map<Article>(([fileName, file]) => ({
       ...file.data.frontmatter,
