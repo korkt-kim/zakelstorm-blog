@@ -11,6 +11,7 @@ import {
   useNavigation,
 } from 'react-router'
 
+import { useDebouncedValue } from '~/utils/useDebouncedValue'
 import type { Route } from './+types/root'
 import './app.css'
 
@@ -47,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const navigation = useNavigation()
-  const isNavigating = Boolean(navigation.location)
+  const isNavigating = useDebouncedValue(Boolean(navigation.location), 300)
 
   return (
     <>
@@ -56,12 +57,11 @@ export default function App() {
           animationData={globalLoading}
           loop
           style={{
-            height: '50%',
-            width: '5s0%',
+            height: 'clamp(180px, 20%, 600px)',
+            width: 'clamp(180px, 20%, 600px)',
             position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            bottom: '0',
+            right: '10px',
           }}
         />
       )}
