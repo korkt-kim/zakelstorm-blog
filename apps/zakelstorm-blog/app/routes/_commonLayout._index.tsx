@@ -16,11 +16,13 @@ export async function loader() {
 }
 
 export default function Page({ loaderData }: Route.ComponentProps) {
+  const { articles } = loaderData
+
   return (
     <>
       <Hero />
 
-      <RecentArticles articles={loaderData.articles} />
+      <RecentArticles articles={articles} />
     </>
   )
 }

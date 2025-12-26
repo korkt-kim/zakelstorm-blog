@@ -9,10 +9,9 @@ const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
 export default {
   // Config options...
   // Server-side render by default, to enable SPA mode set this to `false`
-  ssr: true,
+  ssr: false,
   async prerender({ getStaticPaths }) {
     const paths = await getStaticPaths()
-
     const slugs = await getSlugsFromMarkdown(CONTENTS_DIR)
 
     return [
