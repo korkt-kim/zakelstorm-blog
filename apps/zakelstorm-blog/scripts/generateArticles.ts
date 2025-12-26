@@ -42,7 +42,6 @@ const generateArticles = async () => {
     }))
     .forEach(item => {
       const fileName = item.fileName
-      console.log(fileName)
       gerateJsonFile(GENERATED_DIR, fileName, item)
     })
 }

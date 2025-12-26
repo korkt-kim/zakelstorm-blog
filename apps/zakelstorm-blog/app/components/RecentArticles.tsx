@@ -1,5 +1,5 @@
-import type { Article } from '~/contents/types'
 import { Link } from 'react-router'
+import type { Article } from '~/contents/types'
 import { Articles } from './Articles'
 import { Flex } from './shared/Flex'
 
