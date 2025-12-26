@@ -118,8 +118,8 @@ const changeImagePaths = () => (tree: Node) => {
       return
     }
     imageNode.url = imageNode.url
-      .replaceAll(path.join(CONTENTS_DIR, 'images'), '../../images')
-      .replaceAll('../images', '../../images')
+      .replaceAll(path.join(CONTENTS_DIR, 'images'), '/articles/images')
+      .replaceAll('../images', '/articles/images')
   })
 
   return tree
