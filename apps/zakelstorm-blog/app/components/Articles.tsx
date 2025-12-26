@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import type { Article } from '~/contents/types'
+import { formatDate } from '~/utils/format'
 import { Flex } from './shared/Flex'
 
 export function Articles({ articles }: { articles: Article[] }) {
@@ -69,7 +70,9 @@ export function Articles({ articles }: { articles: Article[] }) {
                   </Flex>
                   <Flex gap={8}>
                     <span className='font-medium'>Date</span>
-                    <span>{article.createdAt}</span>
+                    <time dateTime={article.createdAt}>
+                      {formatDate(article.createdAt)}
+                    </time>
                   </Flex>
                   <Flex gap={8}>
                     <span className='font-medium'>Read</span>

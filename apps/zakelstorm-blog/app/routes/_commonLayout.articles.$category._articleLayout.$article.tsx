@@ -3,6 +3,7 @@ import CalendarLogo from '@assets/images/calendar.svg?react'
 import PencilLogo from '@assets/images/pencil.svg?react'
 import { Link } from 'react-router'
 import { CONTENT_EDIT_URL } from '~/contents/consts'
+import { formatDate } from '~/utils/format'
 import { Flex } from '../components/shared/Flex'
 import { getArticleContent } from '../queries/article'
 import type { Route } from './+types/_commonLayout.articles.$category._articleLayout.$article'
@@ -15,14 +16,6 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   const { article } = loaderData
-  const formattedDate = new Date(article.createdAt).toLocaleDateString(
-    'ko-KR',
-    {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }
-  )
 
   return (
     <div className='mx-auto max-w-4xl px-4 py-12'>
@@ -53,7 +46,9 @@ export default function Page({ loaderData }: Route.ComponentProps) {
         <div className='flex flex-wrap items-center gap-4 text-sm text-gray-400'>
           <div className='flex items-center gap-1.5'>
             <CalendarLogo fill='grey' />
-            <time dateTime={article.createdAt}>{formattedDate}</time>
+            <time dateTime={article.createdAt}>
+              {formatDate(article.createdAt)}
+            </time>
           </div>
 
           <div className='flex items-center gap-1.5'>
