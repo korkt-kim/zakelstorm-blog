@@ -10,4 +10,5 @@ build/
 
 .generated
 .vite
-.vercel*.tsbuildinfo
+.vercel
+*.tsbuildinfo
