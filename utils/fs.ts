@@ -22,8 +22,11 @@ export const gerateJsonFile = async (
   content: object
 ) => {
   try {
-    await fs.mkdir(dir)
-  } catch {}
+    await fs.mkdir(dir, { recursive: true })
+  } catch {
+    console.log('dir already exists')
+  }
+
   await fs.access(dir)
 
   fs.writeFile(

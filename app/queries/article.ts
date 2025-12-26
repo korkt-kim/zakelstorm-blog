@@ -4,7 +4,7 @@ import path from 'path'
 import { DIRECTORIES } from '~/contents/consts'
 import type { Article } from '~/contents/types'
 
-const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
+const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS_GENERATED)
 
 export const getAllArticles = async () => {
   const articleFiles = await fg('**/*.json', {

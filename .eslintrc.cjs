@@ -1,6 +1,6 @@
 // Base config
 
-  /** @type {import('eslint').Linter.Config} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
   extends: ['eslint:recommended', 'prettier'],
@@ -14,11 +14,31 @@ module.exports = {
   env: {
     browser: true,
     commonjs: true,
-     es6: true,
+    es6: true,
   },
 
   overrides: [
-
+    // React
+    {
+      files: ['**/*.{js,jsx,ts,tsx}'],
+      plugins: ['react', 'jsx-a11y'],
+      extends: [
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime',
+        'plugin:react-hooks/recommended',
+        'plugin:jsx-a11y/recommended',
+      ],
+      settings: {
+        react: {
+          version: 'detect',
+        },
+        formComponents: ['Form'],
+        linkComponents: [
+          { name: 'Link', linkAttribute: 'to' },
+          { name: 'NavLink', linkAttribute: 'to' },
+        ],
+      },
+    },
     // Typescript
     {
       files: ['**/*.{ts,tsx}'],

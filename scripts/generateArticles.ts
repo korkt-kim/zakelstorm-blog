@@ -25,7 +25,7 @@ import { remarkReadingTime } from '~/libs/remark-reading-time'
 
 const REPO_ROOT = execSync('git rev-parse --show-toplevel').toString().trim()
 const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
-const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.GENERATED)
+const GENERATED_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS_GENERATED)
 
 const generateArticles = async () => {
   const res = await Promise.all(await getAllArticleContents(CONTENTS_DIR))
@@ -117,8 +117,20 @@ const changeImagePaths = () => (tree: Node) => {
       return
     }
     imageNode.url = imageNode.url
-      .replaceAll(path.join(CONTENTS_DIR, 'images'), '/articles/images')
-      .replaceAll('../images', '/articles/images')
+      .replaceAll(
+        path.join(CONTENTS_DIR, 'images'),
+        `/${path.relative(
+          DIRECTORIES.BUILD_CLIENT,
+          DIRECTORIES.BUILD_CLIENT_ARTICLES_IMAGES
+        )}`
+      )
+      .replaceAll(
+        '../images',
+        `/${path.relative(
+          DIRECTORIES.BUILD_CLIENT,
+          DIRECTORIES.BUILD_CLIENT_ARTICLES_IMAGES
+        )}`
+      )
   })
 
   return tree
