@@ -36,7 +36,7 @@ export function Header() {
         justify='space-between'
         className='py-[24px] w-full max-w-[1920px] mx-auto'>
         {/* Logo */}
-        <Link to={import.meta.env.BASE_URL}>
+        <Link className='hidden md:block' to={import.meta.env.BASE_URL}>
           <Flex
             align='center'
             gap={8}
@@ -46,8 +46,12 @@ export function Header() {
           </Flex>
         </Link>
 
-        {/* Navigation - Desktop */}
-        <nav className='hidden md:flex items-center gap-16'>
+        <Flex
+          as='nav'
+          align='center'
+          justify='space-between'
+          className='w-full md:w-auto md:ml-auto'
+          gap={64}>
           <Flex gap={32} className='font-mono text-base capitalize'>
             {MENUS.map(menu => (
               <Link
@@ -62,7 +66,7 @@ export function Header() {
             ))}
           </Flex>
 
-          <Flex align='center' gap={64}>
+          <Flex align='center' justify='end' gap={64}>
             <Flex gap={32}>
               <Link
                 to={LINKED_IN_URL}
@@ -80,23 +84,7 @@ export function Header() {
               </Link>
             </Flex>
           </Flex>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button className='md:hidden text-white'>
-          <svg
-            className='w-6 h-6'
-            fill='none'
-            stroke='currentColor'
-            viewBox='0 0 24 24'>
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M4 6h16M4 12h16M4 18h16'
-            />
-          </svg>
-        </button>
+        </Flex>
       </Flex>
     </header>
   )
