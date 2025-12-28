@@ -22,6 +22,10 @@ export default defineConfig({
             DIRECTORIES.BUILD_CLIENT_ARTICLES
           ),
         },
+        {
+          src: DIRECTORIES.FONTS,
+          dest: '',
+        },
       ],
     }),
   ],

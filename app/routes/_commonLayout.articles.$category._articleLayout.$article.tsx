@@ -8,6 +8,19 @@ import { Flex } from '../components/shared/Flex'
 import { getArticleContent } from '../queries/article'
 import type { Route } from './+types/_commonLayout.articles.$category._articleLayout.$article'
 
+export function meta({ loaderData }: Route.MetaArgs) {
+  const ogImageUrl = `${import.meta.env.PROD ? 'https' : 'http'}:${import.meta.env.VITE_APP_BASE_URL}/og-image?title=${encodeURIComponent(loaderData.article.title)}`
+
+  return [
+    { title: loaderData.article.title },
+    { property: 'og:title', content: loaderData.article.title },
+    { property: 'og:description', content: loaderData.article.description },
+    { property: 'og:image', content: ogImageUrl },
+    { property: 'twitter:card', content: 'summary_large_image' },
+    { property: 'twitter:image', content: ogImageUrl },
+  ]
+}
+
 export async function loader({ params }: Route.LoaderArgs) {
   const article = await getArticleContent(params.article)
 

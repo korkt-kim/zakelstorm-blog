@@ -1,6 +1,7 @@
 import { generateRobotTxt } from '~/utils/robots'
 
 export function loader() {
+  const protocol = import.meta.env.PROD ? 'https' : 'http'
   const robotText = generateRobotTxt({
     policy: [
       {
@@ -8,8 +9,8 @@ export function loader() {
         allow: ['/'],
       },
     ],
-    sitemap: 'https://zakelstorm.me/sitemap.xml',
-    host: 'https://zakelstorm.me',
+    sitemap: `${protocol}:${import.meta.env.VITE_APP_BASE_URL}/sitemap.xml`,
+    host: `${protocol}:${import.meta.env.VITE_APP_BASE_URL}`,
   })
 
   const bytes = new TextEncoder().encode(robotText).byteLength

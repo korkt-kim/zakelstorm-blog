@@ -76,17 +76,6 @@ export function Hero() {
                     Full-time / Hyundai-Motors
                   </span>
                 </Flex>
-                <Flex align='center' gap={16}>
-                  <svg
-                    className='w-3.5 h-3.5 text-brand-primary'
-                    viewBox='0 0 14 14'
-                    fill='currentColor'>
-                    <path d='M6.125 7.875L9.625 11.375C9.875 11.625 10.25 11.625 10.5 11.375C10.75 11.125 10.75 10.75 10.5 10.5L7.4375 7.4375L10.5 4.375C10.75 4.125 10.75 3.75 10.5 3.5C10.25 3.25 9.875 3.25 9.625 3.5L6.125 7C5.875 7.25 5.875 7.625 6.125 7.875ZM3.5 7.875L7 11.375C7.25 11.625 7.625 11.625 7.875 11.375C8.125 11.125 8.125 10.75 7.875 10.5L4.8125 7.4375L7.875 4.375C8.125 4.125 8.125 3.75 7.875 3.5C7.625 3.25 7.25 3.25 7 3.5L3.5 7C3.25 7.25 3.25 7.625 3.5 7.875Z' />
-                  </svg>
-                  <span className='font-mono text-sm text-white'>
-                    zakelstorm.me
-                  </span>
-                </Flex>
               </Flex>
 
               {/* Tags */}

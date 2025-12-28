@@ -6,12 +6,16 @@ import { getSlugsFromMarkdown, removeExtension } from './utils/fs'
 
 const CONTENTS_DIR = path.join(process.cwd(), DIRECTORIES.CONTENTS)
 
+const ignoredPrerenderPaths = ['/og-image', '/robots.txt']
+
 export default {
   // Config options...
   // Server-side render by default, to enable SPA mode set this to `false`
   ssr: true,
   async prerender({ getStaticPaths }) {
-    const paths = await getStaticPaths()
+    const paths = (await getStaticPaths()).filter(
+      path => !ignoredPrerenderPaths.includes(path)
+    )
     const slugs = await getSlugsFromMarkdown(CONTENTS_DIR)
 
     return [

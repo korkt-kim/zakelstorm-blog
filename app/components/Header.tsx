@@ -36,7 +36,7 @@ export function Header() {
         justify='space-between'
         className='py-[24px] w-full max-w-[1920px] mx-auto'>
         {/* Logo */}
-        <Link className='hidden md:block' to={import.meta.env.BASE_URL}>
+        <Link className='hidden md:block' to='/'>
           <Flex
             align='center'
             gap={8}
