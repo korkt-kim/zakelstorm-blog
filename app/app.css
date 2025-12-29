@@ -280,6 +280,7 @@
   }
 
   button {
+    cursor: pointer;
     font-family: var(--font-button-family);
     font-size: var(--font-button-size);
     font-weight: var(--font-button-weight);

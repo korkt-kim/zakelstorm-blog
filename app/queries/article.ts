@@ -27,3 +27,9 @@ export const getArticleContent = async (fileName: string): Promise<Article> => {
 
   return article
 }
+
+export const getAllCategories = async () => {
+  const articleFiles = await getAllArticles()
+
+  return Array.from(new Set(articleFiles.map(article => article.category)))
+}
