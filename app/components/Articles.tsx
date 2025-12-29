@@ -1,87 +1,67 @@
 import { Link } from 'react-router'
 import type { Article } from '~/contents/types'
-import { formatDate } from '~/utils/format'
-import { Flex } from './shared/Flex'
+import { cn } from '~/utils/cn'
+import { CategoryTag } from './CategoryTag'
+import { DateTag } from './DateTag'
+import { ReadingTimeTag } from './ReadingTimeTag'
+import { Flex, type FlexProps } from './shared/Flex'
 
-export function Articles({ articles }: { articles: Article[] }) {
+export interface ArticlesProps extends FlexProps {
+  articles: Article[]
+}
+
+export function Articles({ articles, className, ...props }: ArticlesProps) {
   return (
-    <Flex vertical align='center' gap={64} className='max-w-[1920px] mx-auto'>
-      {/* Blog Post */}
+    <Flex
+      vertical
+      align='center'
+      gap={16}
+      className={cn(['max-w-[1920px] mx-auto', className])}
+      {...props}>
       {articles.map(article => {
         return (
-          <div
+          <Link
             key={article.category + article.fileName}
-            className='w-full border-t border-b border-grey/30 py-8'>
-            <Flex vertical align='start' gap={32} className='md:flex-row px-4'>
-              {/* Blog Image */}
-              {article.thumbnail && (
-                <div className='hidden md:block md:w-[120px] h-[120px] rounded-lg overflow-hidden bg-grey shrink-0'>
-                  <img
-                    src={article.thumbnail}
-                    alt='Blog post'
-                    className='w-full h-full object-cover'
-                    onError={e => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-              )}
+            to={`/articles/${article.category}/${article.fileName}`}>
+            <Flex
+              vertical
+              gap={16}
+              className='h-full border border-white/30 p-[16px] rounded-lg hover:bg-white/10 transition-colors'>
+              <Flex vertical align='start' gap={16} className='md:flex-row '>
+                {/* {article.thumbnail && (
+                  <div className='hidden md:block md:w-[120px] h-[120px] rounded-lg overflow-hidden bg-grey shrink-0'>
+                    <img
+                      src={article.thumbnail}
+                      alt='Blog post'
+                      className='w-full h-full object-cover'
+                      onError={e => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                  </div>
+                )} */}
 
-              {/* Blog Content */}
-              <Flex vertical gap={24} className='flex-1'>
-                <h3 className='font-ubuntu text-2xl md:text-[32px] md:leading-9 text-brand-primary'>
-                  {article.title}
-                </h3>
+                <Flex vertical gap={24}>
+                  <h3 className='font-ubuntu text-2xl md:text-[32px] md:leading-9 text-brand-primary p-0 m-0'>
+                    {article.title}
+                  </h3>
 
-                <p className='font-ubuntu font-light text-base leading-[18px] text-white'>
-                  {article.description}
-                </p>
-
-                {/* Read More */}
-                <Flex
-                  align='start'
-                  gap={4}
-                  className='group cursor-pointer w-fit'>
-                  <Flex vertical gap={4}>
-                    <Link
-                      to={`/articles/${article.category}/${article.fileName}`}
-                      className='font-ubuntu font-light text-base text-brand-primary group-hover:text-brand-secondary transition-colors'>
-                      Read More
-                    </Link>
-                    <div className='h-px bg-brand-primary group-hover:bg-brand-secondary transition-colors' />
-                  </Flex>
-                  <span className='font-ubuntu font-light text-base text-brand-primary'>
-                    {'>>'}
-                  </span>
-                </Flex>
-
-                {/* Info Tags */}
-                <Flex
-                  wrap
-                  gap={8}
-                  align='center'
-                  className='font-ubuntu font-light text-sm text-white capitalize'>
-                  <span className='bg-grey px-2 py-1 rounded-2xl'>
-                    {article.category}
-                  </span>
-                  <Flex gap={8}>
-                    <span className='font-medium'>Text</span>
-                    <span>PolZ</span>
-                  </Flex>
-                  <Flex gap={8}>
-                    <span className='font-medium'>Date</span>
-                    <time dateTime={article.createdAt}>
-                      {formatDate(article.createdAt)}
-                    </time>
-                  </Flex>
-                  <Flex gap={8}>
-                    <span className='font-medium'>Read</span>
-                    <span>{article.readingTime} Min</span>
-                  </Flex>
+                  <p className='font-ubuntu font-light text-base line-clamp-2'>
+                    {article.description}
+                  </p>
                 </Flex>
               </Flex>
+              <Flex
+                wrap
+                gap={8}
+                align='center'
+                className='font-ubuntu font-light text-sm text-white mt-auto'>
+                <CategoryTag category={article.category} />
+                <DateTag date={article.createdAt} />
+                <ReadingTimeTag readingTime={article.readingTime} />
+              </Flex>
             </Flex>
-          </div>
+          </Link>
         )
       })}
     </Flex>

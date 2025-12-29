@@ -25,8 +25,10 @@ export function RecentArticles({
           <div className='w-full max-w-xs h-px bg-brand-primary' />
         </Flex>
 
-        {/* Blog Post */}
-        <Articles articles={articles.slice(0, length)} />
+        <Articles
+          articles={articles.slice(0, length)}
+          className='max-w-[calc(min(100%,600px))] mx-auto'
+        />
 
         {/* Buttons */}
         <Flex wrap gap={32} justify='center'>

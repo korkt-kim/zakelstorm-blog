@@ -1,9 +1,10 @@
 // import { getArticleContent } from '~/app/queries/article'
-import CalendarLogo from '@assets/images/calendar.svg?react'
 import PencilLogo from '@assets/images/pencil.svg?react'
 import { Link } from 'react-router'
 import { CONTENT_EDIT_URL } from '~/contents/consts'
-import { formatDate } from '~/utils/format'
+import { CategoryTag } from '../components/CategoryTag'
+import { DateTag } from '../components/DateTag'
+import { ReadingTimeTag } from '../components/ReadingTimeTag'
 import { Flex } from '../components/shared/Flex'
 import { getArticleContent } from '../queries/article'
 import type { Route } from './+types/_commonLayout.articles.$category._articleLayout.$article'
@@ -34,12 +35,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
     <div className='mx-auto max-w-4xl px-4 py-12'>
       {/* Article Header */}
       <header className='mb-12 border-b border-gray-200 pb-8'>
-        {/* Category Badge */}
-        <div className='mb-4'>
-          <span className='inline-block rounded-full bg-blue-100 px-4 py-1.5 text-sm font-medium text-blue-700'>
-            {article.category}
-          </span>
-        </div>
+        <CategoryTag category={article.category} />
 
         {/* Title */}
         <Flex justify='space-between'>
@@ -57,16 +53,9 @@ export default function Page({ loaderData }: Route.ComponentProps) {
 
         {/* Meta Information */}
         <div className='flex flex-wrap items-center gap-4 text-sm text-gray-400'>
-          <div className='flex items-center gap-1.5'>
-            <CalendarLogo fill='grey' />
-            <time dateTime={article.createdAt}>
-              {formatDate(article.createdAt)}
-            </time>
-          </div>
+          <DateTag date={article.createdAt} />
 
-          <div className='flex items-center gap-1.5'>
-            <span>{article.readingTime}Min to Read</span>
-          </div>
+          <ReadingTimeTag readingTime={article.readingTime} />
         </div>
       </header>
 
