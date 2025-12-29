@@ -124,7 +124,10 @@ export function Hero() {
               <p className='font-mono text-base leading-5 text-white pl-6'>
                 I help business grow by crafting amazing web experiences. If
                 you&apos;re looking for a developer that likes to get stuff
-                done,
+                done,{' '}
+                <span className='text-brand-primary'>
+                  Let’s build something amazing together!
+                </span>
               </p>
               <span className='font-mono text-sm text-brand-secondary'>
                 {'</p>'}

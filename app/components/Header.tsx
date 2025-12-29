@@ -3,6 +3,7 @@ import LinkedInLogo from '@assets/images/linkedin.svg?react'
 import { Link, useLocation } from 'react-router'
 import { GITHUB_URL, LINKED_IN_URL } from '~/app/const'
 import { cn } from '~/utils/cn'
+import { useBreakpoint } from '~/utils/useBreakpoint'
 import { Flex } from './shared/Flex'
 
 const MENUS = [
@@ -17,7 +18,10 @@ const MENUS = [
   { name: 'About', href: '/about' },
 ]
 
+const desktopBreakpoints = ['xl', '2xl']
+
 export function Header() {
+  const breakpoint = useBreakpoint()
   const { pathname } = useLocation()
 
   const isMatchedMenu = (menu: (typeof MENUS)[number]) => {
@@ -30,7 +34,7 @@ export function Header() {
   }
 
   return (
-    <header className='bg-bg-dark px-8 py-0 w-full border-b border-grey/20'>
+    <header className='bg-bg-dark px-main-padding-inline py-0 w-full border-b border-grey/20'>
       <Flex
         align='center'
         justify='space-between'
@@ -51,8 +55,10 @@ export function Header() {
           align='center'
           justify='space-between'
           className='w-full md:w-auto md:ml-auto'
-          gap={64}>
-          <Flex gap={32} className='font-mono text-base capitalize'>
+          gap={64 / (desktopBreakpoints.includes(breakpoint) ? 1 : 2)}>
+          <Flex
+            gap={32 / (desktopBreakpoints.includes(breakpoint) ? 1 : 2)}
+            className='font-mono text-base capitalize'>
             {MENUS.map(menu => (
               <Link
                 key={menu.name}
@@ -66,8 +72,11 @@ export function Header() {
             ))}
           </Flex>
 
-          <Flex align='center' justify='end' gap={64}>
-            <Flex gap={32}>
+          <Flex
+            align='center'
+            justify='end'
+            gap={64 / (desktopBreakpoints.includes(breakpoint) ? 1 : 2)}>
+            <Flex gap={32 / (desktopBreakpoints.includes(breakpoint) ? 1 : 2)}>
               <Link
                 to={LINKED_IN_URL}
                 target='_blank'
