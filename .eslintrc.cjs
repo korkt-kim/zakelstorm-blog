@@ -50,13 +50,16 @@ module.exports = {
       settings: {
         'import/internal-regex': '^~/',
         'import/resolver': {
-          node: {
-            extensions: ['.ts', '.tsx'],
-          },
           typescript: {
             alwaysTryTypes: true,
             project: ['./tsconfig.json', './apps/*/tsconfig.json'],
           },
+          node: {
+            extensions: ['.ts', '.tsx'],
+          },
+        },
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
       },
       extends: [

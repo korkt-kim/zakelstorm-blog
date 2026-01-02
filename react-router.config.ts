@@ -1,4 +1,5 @@
 import type { Config } from '@react-router/dev/config'
+import { sentryOnBuildEnd } from '@sentry/react-router'
 import { vercelPreset } from '@vercel/react-router/vite'
 import path from 'path'
 import { DIRECTORIES } from './contents/consts'
@@ -23,5 +24,18 @@ export default {
       ...slugs.map(slug => `/articles/${slug[0]}/${removeExtension(slug[1])}`),
     ]
   },
+
   presets: process.env.VERCEL ? [vercelPreset()] : [],
+
+  buildEnd: async ({
+    viteConfig: viteConfig,
+    reactRouterConfig: reactRouterConfig,
+    buildManifest: buildManifest,
+  }) => {
+    await sentryOnBuildEnd({
+      viteConfig: viteConfig,
+      reactRouterConfig: reactRouterConfig,
+      buildManifest: buildManifest,
+    })
+  },
 } satisfies Config
