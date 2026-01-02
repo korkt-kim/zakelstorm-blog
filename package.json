@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run generate && react-router build",
-    "dev": "pnpm run generate && react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
+    "dev": "NODE_OPTIONS='--import ./instrument.server.mjs' pnpm run generate && react-router dev",
+    "start": "NODE_OPTIONS='--import ./instrument.server.mjs' react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "generate": "tsx scripts/generateArticles.ts"
   },
@@ -15,6 +15,7 @@
     "@react-router/node": "7.10.1",
     "@react-router/serve": "7.10.1",
     "@resvg/resvg-js": "^2.6.2",
+    "@sentry/react-router": "^10.32.1",
     "@shikijs/rehype": "^3.20.0",
     "@vercel/react-router": "^1.2.4",
     "classnames": "^2.5.1",

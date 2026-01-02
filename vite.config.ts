@@ -1,3 +1,4 @@
+import { sentryReactRouter } from '@sentry/react-router'
 import { reactRouter } from '@react-router/dev/vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
@@ -7,7 +8,7 @@ import svgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { DIRECTORIES } from './contents/consts'
 
-export default defineConfig({
+export default defineConfig(config => ({
   plugins: [
     tailwindcss(),
     reactRouter(),
@@ -28,5 +29,16 @@ export default defineConfig({
         },
       ],
     }),
+    sentryReactRouter(
+      {
+        org: 'sentry',
+        project: 'blog',
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+      config
+    ),
   ],
-})
+  build: {
+    sourcemap: config.mode === 'development',
+  },
+}))
