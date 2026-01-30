@@ -8,7 +8,6 @@ import {
 
 import rehypeShiki from '@shikijs/rehype'
 import { execSync } from 'child_process'
-import type { Stats } from 'fs'
 import fs from 'fs/promises'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
@@ -57,7 +56,6 @@ const getAllArticleContents = async (dir: string) => {
     const [category, fileName] = slug
 
     const filePath = path.join(CONTENTS_DIR, category, fileName)
-    const stats = await fs.stat(filePath)
 
     const result = await unified()
       .use(remarkParse)
@@ -68,7 +66,7 @@ const getAllArticleContents = async (dir: string) => {
       .use(changeImagePaths)
       .use(remarkGfm)
       .use(remarkFrontmatter, ['yaml', 'toml'])
-      .use(appendFrontmatter(category, stats))
+      .use(appendFrontmatter(category))
       .use(remarkRehype)
       .use(rehypeShiki, {
         themes: {
@@ -141,7 +139,7 @@ const isImageNode = (node: Node): node is Node & { url: string } => {
 }
 
 const appendFrontmatter =
-  (category: string, stats: Stats) => () => (tree: Node, file: VFile) => {
+  (category: string) => () => (tree: Node, file: VFile) => {
     if ('children' in tree === false) {
       return tree
     }
@@ -167,11 +165,14 @@ const appendFrontmatter =
         category,
         thumbnail:
           imageNodes[0] && isImageNode(imageNodes[0]) ? imageNodes[0].url : '',
-        createdAt: stats.birthtime.toISOString(),
+        createdAt: '',
         ...frontmatterNode.value
           .split('\n')
           .reduce<Record<string, string>>((acc, item) => {
-            const [key, value] = item.split(':')
+            const [key, value] = [
+              item.split(':')[0],
+              item.split(':').slice(1).join(':'),
+            ]
             acc[key.trim()] = value.trim()
 
             return acc

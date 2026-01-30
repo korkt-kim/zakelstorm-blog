@@ -11,6 +11,7 @@
     "createArticleTemplate": "tsx scripts/createArticleTemplate.ts"
   },
   "dependencies": {
+    "@inquirer/prompts": "^8.2.0",
     "@react-router/dev": "7.10.1",
     "@react-router/fs-routes": "^7.11.0",
     "@react-router/node": "7.10.1",
@@ -20,6 +21,7 @@
     "@shikijs/rehype": "^3.20.0",
     "@vercel/react-router": "^1.2.4",
     "classnames": "^2.5.1",
+    "dayjs": "^1.11.19",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.3",
     "isbot": "^5.1.31",

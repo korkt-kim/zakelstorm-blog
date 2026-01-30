@@ -1,6 +1,7 @@
 ---
 title: Single Responsibility Principle (단일 책임 원칙)
 description: 클래스를 변경하는 이유는 하나여야 한다는 단일 책임 원칙(SRP)의 개념과 위반 사례, 책임 분리를 통한 개선 방법을 설명합니다.
+createdAt: 2026-01-03T08:43:45.463Z
 ---
 
 # Single Responsibility Principle (단일 책임 원칙)

@@ -1,6 +1,7 @@
 ---
 title: Performance Lecture 2 - 애니메이션부터 이미지 로딩까지
 description: 웹페이지의 성능을 좌우하는 Jank 현상을 해결하는 방법부터 컴포넌트 지연 로딩, 이미지 사전 로딩까지. 실제 코드 예제와 함께 배우는 React 애플리케이션 최적화 기법을 소개합니다.
+createdAt: 2026-01-06T08:43:45.463Z
 ---
 
 # Performance Lecture 2 - 애니메이션부터 이미지 로딩까지

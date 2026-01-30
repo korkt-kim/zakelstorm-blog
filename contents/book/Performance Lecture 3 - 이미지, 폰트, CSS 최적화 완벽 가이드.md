@@ -1,6 +1,7 @@
 ---
 title: Performance Lecture 3 - 이미지, 폰트, CSS 최적화 완벽 가이드
 decription: 이미지 지연 로딩부터 폰트 최적화, 불필요한 CSS 제거까지. Lighthouse와 Coverage 패널을 활용한 성능 개선 전략과 IntersectionObserver를 이용한 실제 구현 코드를 담았습니다. 캐시 전략까지 배우는 완벽한 성능 최적화 가이드입니다.
+createdAt: 2026-01-07T08:43:45.463Z
 ---
 
 # Performance Lecture 3 - 이미지, 폰트, CSS 최적화 완벽 가이드

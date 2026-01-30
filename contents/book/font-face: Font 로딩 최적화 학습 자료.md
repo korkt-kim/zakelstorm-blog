@@ -1,6 +1,7 @@
 ---
 title: font-face
 description: 웹 페이지 폰트 로딩으로 인한 FOUT/FOIT 문제를 근본적으로 해결하는 방법을 소개합니다. <link rel='preload'>와 @font-face의 최적 조합부터 canonical, dns-prefetch, preconnect의 차이점까지. 실제 프로젝트에 바로 적용할 수 있는 완벽한 가이드입니다.
+createdAt: 2026-01-04T08:43:45.463Z
 ---
 
 # font-face
