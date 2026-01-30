@@ -1,6 +1,7 @@
 ---
 title: Performance Lecture 1 - Lighthouse로 시작하는 웹 최적화
 description: 웹 성능 최적화의 핵심 기법들을 다루는 강의입니다. 이미지 사이즈 최적화, 코드 분할, 텍스트 압축, 병목 코드 최적화 등 다양한 최적화 전략을 학습합니다. Chrome DevTools의 Network, Performance, Lighthouse 패널과 webpack-bundle-analyzer를 활용해 실제 성능 문제를 분석하고 개선하는 방법을 배웁니다. Web Vitals 지표(FCP, LCP, CLS 등)를 이해하고 구체적인 최적화 사례를 통해 실무 능력을 키울 수 있습니다.
+createdAt: 2026-01-05T08:43:45.463Z
 ---
 
 # Performance Lecture 1 - Lighthouse로 시작하는 웹 최적화

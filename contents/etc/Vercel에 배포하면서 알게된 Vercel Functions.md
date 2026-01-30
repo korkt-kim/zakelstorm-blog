@@ -1,6 +1,7 @@
 ---
 title: Vercel에 배포하면서 알게된 Vercel Functions
 description: Vercel의 Serverless Functions와 Fluid Compute 모델에 대한 이해. 기존 서버리스의 한계를 극복하고 비용 효율성과 성능을 최적화하는 방법을 알아봅니다.
+createdAt: 2026-01-02T08:43:45.463Z
 ---
 
 # Vercel Deploy - Serverless Functions

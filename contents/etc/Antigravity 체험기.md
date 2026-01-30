@@ -1,6 +1,7 @@
 ---
 title: Antigravity 체험기
 description: Antigravity는 AI 기반 개발 자동화 도구로, 코드 작성부터 브라우저 테스트까지 전체 개발 프로세스를 자동화합니다. Editor/Manager 뷰로 다중 에이전트를 효율적으로 관리하고, 모든 작업을 추적할 수 있습니다.
+createdAt: 2026-01-01T08:43:45.463Z
 ---
 
 # Antigravity 체험기
