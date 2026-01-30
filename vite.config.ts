@@ -1,5 +1,5 @@
-import { sentryReactRouter } from '@sentry/react-router'
 import { reactRouter } from '@react-router/dev/vite'
+import { sentryReactRouter } from '@sentry/react-router'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -24,7 +24,15 @@ export default defineConfig(config => ({
           ),
         },
         {
+          src: DIRECTORIES.IMAGES,
+          dest: '',
+        },
+        {
           src: DIRECTORIES.FONTS,
+          dest: '',
+        },
+        {
+          src: DIRECTORIES.LOTTIES,
           dest: '',
         },
       ],
