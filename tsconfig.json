@@ -10,7 +10,7 @@
     "rootDirs": [".", ".react-router/types"],
     "paths": {
       "~/*": ["./*"],
-      "@assets/*": ["./public/*"]
+      "@assets/*": ["./app/assets/*"]
     },
     "baseUrl": ".",
     "esModuleInterop": true,
@@ -21,6 +21,6 @@
     "strict": true,
     "allowJs": true,
     "isolatedModules": true,
-    "incremental": true,
+    "incremental": true
   }
 }
