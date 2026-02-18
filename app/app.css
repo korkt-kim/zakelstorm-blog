@@ -273,6 +273,11 @@
     padding-left: 0.5rem;
   }
 
+  article {
+    word-wrap: break-word;
+    word-break: keep-all;
+  }
+
   ul li::marker,
   ol li::marker {
     color: var(--color-brand-primary);
