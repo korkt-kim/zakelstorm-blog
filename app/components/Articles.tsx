@@ -11,6 +11,7 @@ export interface ArticlesProps extends FlexProps {
 }
 
 export function Articles({ articles, className, ...props }: ArticlesProps) {
+  console.log('iosdfjgiorejgpoierjgoej')
   return (
     <Flex
       vertical
@@ -28,22 +29,9 @@ export function Articles({ articles, className, ...props }: ArticlesProps) {
               gap={16}
               className='h-full border border-white/30 p-[16px] rounded-lg hover:bg-white/10 transition-colors'>
               <Flex vertical align='start' gap={16} className='md:flex-row '>
-                {/* {article.thumbnail && (
-                  <div className='hidden md:block md:w-[120px] h-[120px] rounded-lg overflow-hidden bg-grey shrink-0'>
-                    <img
-                      src={article.thumbnail}
-                      alt='Blog post'
-                      className='w-full h-full object-cover'
-                      onError={e => {
-                        e.currentTarget.style.display = 'none'
-                      }}
-                    />
-                  </div>
-                )} */}
-
                 <Flex vertical gap={24}>
                   <h3 className='font-ubuntu text-2xl md:text-[32px] md:leading-9 text-brand-primary p-0 m-0'>
-                    {article.title}
+                    {article.title}asdf
                   </h3>
 
                   <p className='font-ubuntu font-light text-base line-clamp-2'>
