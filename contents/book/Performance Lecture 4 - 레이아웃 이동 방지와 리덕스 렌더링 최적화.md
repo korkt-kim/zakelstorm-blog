@@ -1,6 +1,7 @@
 ---
 title: Performance Lecture 4 - 레이아웃 이동 방지와 리덕스 렌더링 최적화
 description: CLS(누적 레이아웃 시프트) 문제를 해결하고 리덕스의 불필요한 리렌더링을 최적화하는 방법을 소개합니다. React Developer Tools의 Profiler로 성능 문제를 시각화하고, react-lazy-load-image-component를 활용한 이미지 최적화까지 배웁니다.
+createdAt: 2025-12-26
 ---
 
 # Performance Lecture 4 - 레이아웃 이동 방지와 리덕스 렌더링 최적화

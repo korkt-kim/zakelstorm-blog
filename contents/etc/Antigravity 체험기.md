@@ -1,6 +1,7 @@
 ---
 title: Antigravity 체험기
 description: Antigravity는 AI 기반 개발 자동화 도구로, 코드 작성부터 브라우저 테스트까지 전체 개발 프로세스를 자동화합니다. Editor/Manager 뷰로 다중 에이전트를 효율적으로 관리하고, 모든 작업을 추적할 수 있습니다.
+createdAt: 2025-12-27
 ---
 
 # Antigravity 체험기
@@ -85,3 +86,25 @@ AI Agent가 개발자가 원치 않은 방향으로 개발을 진행할 가능�
 
 - **적합한 작업**: 단순하고 빠르게 처리해야하는 작업 (예: 버튼색 변경, API 에러 핸들링 추가)
 - **속도**: 빠름
+
+## 결론
+### 장점
+- 에디터, 터미널, 브라우저를 넘나들며 계획(Plan)부터 실행, 검증까지 수행
+- 듀얼 인터페이스
+  - Editor: 기존 VS Code처럼 실시간 코딩 및 디버깅에 집중.
+  - Agent Manager: 대규모 리팩토링이나 다중 파일 수정 같은 비동기/병렬 작업을 맡길 수 있는 별도 공간.
+- 브라우저 통합
+
+### 필수불가결한가?
+- 에디터, 터미널, 브라우저를 넘나들며 계획(Plan)부터 실행, 검증까지 수행
+  - Claude Code, Cursor, Kiro 또한 Plan모드 지원
+  - Broswer 조작 MCP를 사용하면 서비스 검증가능.
+- 듀얼 인터페이스
+  - 다른 Editor 에서는 볼 수 없는 인터페이스. 하지만 Subagent기능을 지원하는 CLI를 쓰면 대체 가능함.
+- Browser MCP
+   - `chrome-dev-tool` 또는 `playwright` mcp 를 사용하면 Claude나 Cursor도 브라우저를 조작할 수 있음.
+
+### 총평
+그럼에도 위의 기능들을 하나의 통합된 환경에서 제공하는 것은 UX상으로 매력적이다. 
+Cursor,Kiro와 비교했을때 Antigravity가 지금까지는 가장 좋은 Editor인것 같다.
+Agent 중심 개발을 한다면 Antigravity를 써보자.

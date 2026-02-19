@@ -1,6 +1,7 @@
 ---
 title: 매일 아침 8시, 나만의 GeekNews 캐스터 만들기 (n8n + NotebookLM)
 description: GeekNews 캐스터 구축 과정과 함께, 비공식 API(MCP)를 활용할 때의 현실적인 한계와 배포 고민
+createdAt: 2025-02-18
 ---
 
 ## 1. 개요 및 준비물
